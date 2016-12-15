@@ -84,7 +84,9 @@ def train():
 
     joblib.dump(clf, model_file_name)
 
-    return 'Success'
+    return 'Success! ' \
+           + 'Trained in %.1f seconds' % (time.time() - start) + '. ' \
+           + 'Model training score: %s' % clf.score(x, y) + '. '
 
 
 @app.route('/wipe', methods=['GET'])
